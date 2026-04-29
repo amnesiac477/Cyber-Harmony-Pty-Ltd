@@ -1,0 +1,17 @@
+{
+  "name": "cyber-harmony",
+  "version": "1.0.0",
+  "description": "Cyber Harmony Pty Ltd - Professional Cybersecurity Services",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "author": "Cyber Harmony Pty Ltd",
+  "license": "ISC"
+}
