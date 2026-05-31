@@ -546,17 +546,27 @@
     }
     window.addEventListener('resize',resize);init();draw();
   })();
-  function submitE8Form(){
+  async function submitE8Form(){
     const n=document.getElementById('e8name').value.trim(),e=document.getElementById('e8email').value.trim(),o=document.getElementById('e8org').value.trim();
     if(!n||!e){alert('Please fill in your name and email.');return;}
-    document.getElementById('e8FormInner').style.display='none';
-    document.getElementById('e8FormSuccess').style.display='block';
+    const btn=document.querySelector('#e8FormInner .form-submit');
+    btn.textContent='Sending...';btn.disabled=true;
+    try{
+      const r=await fetch('https://formspree.io/f/meedwrpj',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({name:n,email:e,organisation:o,_subject:'E8 Checklist Download — '+n})});
+      if(r.ok){document.getElementById('e8FormInner').style.display='none';document.getElementById('e8FormSuccess').style.display='block';}
+      else{alert('Something went wrong. Please email admin@cyberharmony.au directly.');btn.textContent='📥 Download Free Checklist';btn.disabled=false;}
+    }catch(err){alert('Something went wrong. Please email admin@cyberharmony.au directly.');btn.textContent='📥 Download Free Checklist';btn.disabled=false;}
   }
-  function submitForm(){
-    const n=document.getElementById('name').value.trim(),e=document.getElementById('email').value.trim(),m=document.getElementById('message').value.trim();
+  async function submitForm(){
+    const n=document.getElementById('name').value.trim(),e=document.getElementById('email').value.trim(),c=document.getElementById('company').value.trim(),m=document.getElementById('message').value.trim();
     if(!n||!e||!m){alert('Please fill in your name, email, and message.');return;}
-    document.getElementById('contactFormInner').style.display='none';
-    document.getElementById('formSuccess').style.display='block';
+    const btn=document.querySelector('#contactFormInner .form-submit');
+    btn.textContent='Sending...';btn.disabled=true;
+    try{
+      const r=await fetch('https://formspree.io/f/meedwrpj',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({name:n,email:e,company:c,message:m,_subject:'Website Enquiry from '+n})});
+      if(r.ok){document.getElementById('contactFormInner').style.display='none';document.getElementById('formSuccess').style.display='block';}
+      else{alert('Something went wrong. Please email admin@cyberharmony.au directly.');btn.textContent='Send Message ✦';btn.disabled=false;}
+    }catch(err){alert('Something went wrong. Please email admin@cyberharmony.au directly.');btn.textContent='Send Message ✦';btn.disabled=false;}
   }
 </script>
 </body>
