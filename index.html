@@ -216,6 +216,7 @@
     <li><a href="#services">Services</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#blog">Blog</a></li>
+    <li><a href="#essential-eight">Essential Eight</a></li>
     <li><a href="#resources">Resources</a></li>
     <li><a href="#contact" class="nav-cta">Contact Us</a></li>
   </ul>
@@ -320,6 +321,129 @@
   </div>
 </section>
 
+<!-- ESSENTIAL EIGHT -->
+<section id="essential-eight" style="background:var(--bg-mid);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="section-header reveal">
+    <div class="section-label">ASD Essential Eight Maturity Model</div>
+    <h2 class="section-title">The Essential Eight.<br>You've heard of it.<br><span style="background:linear-gradient(90deg,var(--accent-purple),var(--accent-cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">But are you actually implementing it?</span></h2>
+    <p class="section-subtitle">Most Australian organisations sit at Maturity Level 1. The ACSC recommends Level 2 as a baseline. Find out where you stand — in minutes.</p>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem;">
+      <a href="#e8-download" class="btn-primary">📥 Download Free Checklist</a>
+      <a href="#e8-reality" class="btn-secondary">See the reality check →</a>
+    </div>
+    <div style="display:flex;gap:2.5rem;flex-wrap:wrap;margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--border);">
+      <div class="stat-item"><div class="stat-number">8</div><div class="stat-label">Controls to Assess</div></div>
+      <div class="stat-item"><div class="stat-number">ML0–3</div><div class="stat-label">Maturity Levels</div></div>
+      <div class="stat-item"><div class="stat-number">48h</div><div class="stat-label">Patch SLA at ML2</div></div>
+      <div class="stat-item"><div class="stat-number">Free</div><div class="stat-label">Self-Assessment</div></div>
+    </div>
+  </div>
+
+  <!-- Reality Check -->
+  <div id="e8-reality" style="margin-bottom:5rem;">
+    <div class="section-label reveal">Reality Check</div>
+    <h3 class="reveal" style="font-family:'Syne',sans-serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:800;margin-bottom:2.5rem;">Quick maturity check — answer honestly</h3>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon">🛡️</div>
+        <div class="service-title">E8-1 Application Control</div>
+        <div class="service-desc">Do you know every app running on your endpoints?</div>
+        <div style="margin-top:1rem;padding:0.85rem 1rem;background:rgba(168,85,247,0.07);border:1px solid var(--border);border-radius:8px;font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--accent-cyan);line-height:1.6;">"Can you list every executable allowed to run — and prove nothing else can?"</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🔧</div>
+        <div class="service-title">E8-2 Patch Applications</div>
+        <div class="service-desc">Are you patching within 48 hours for internet-facing services?</div>
+        <div style="margin-top:1rem;padding:0.85rem 1rem;background:rgba(168,85,247,0.07);border:1px solid var(--border);border-radius:8px;font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--accent-cyan);line-height:1.6;">"How many days does it actually take from CVE published to patch deployed?"</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🔐</div>
+        <div class="service-title">E8-7 Multi-Factor Authentication</div>
+        <div class="service-desc">Is MFA enabled for ALL remote access — not just some?</div>
+        <div style="margin-top:1rem;padding:0.85rem 1rem;background:rgba(168,85,247,0.07);border:1px solid var(--border);border-radius:8px;font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--accent-cyan);line-height:1.6;">"Can you name the services that still use password-only authentication?"</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">👤</div>
+        <div class="service-title">E8-5 Restrict Admin Privileges</div>
+        <div class="service-desc">When did you last audit who has domain admin?</div>
+        <div style="margin-top:1rem;padding:0.85rem 1rem;background:rgba(168,85,247,0.07);border:1px solid var(--border);border-radius:8px;font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--accent-cyan);line-height:1.6;">"Is your admin account count growing every time someone needs elevated access?"</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">💾</div>
+        <div class="service-title">E8-8 Regular Backups</div>
+        <div class="service-desc">When did you last test restoring from backup?</div>
+        <div style="margin-top:1rem;padding:0.85rem 1rem;background:rgba(168,85,247,0.07);border:1px solid var(--border);border-radius:8px;font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--accent-cyan);line-height:1.6;">"Not just backing up — actually restoring. With a documented test result?"</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">⚙️</div>
+        <div class="service-title">E8-6 Patch Operating Systems</div>
+        <div class="service-desc">Are your OS patches applied within two weeks?</div>
+        <div style="margin-top:1rem;padding:0.85rem 1rem;background:rgba(168,85,247,0.07);border:1px solid var(--border);border-radius:8px;font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--accent-cyan);line-height:1.6;">"How many endpoints in your fleet are running an unpatched OS right now?"</div>
+      </div>
+    </div>
+    <div class="reveal" style="margin-top:2rem;padding:1.5rem 2rem;background:rgba(168,85,247,0.06);border:1px solid var(--border-bright);border-radius:var(--radius);max-width:680px;">
+      <p style="font-family:'DM Mono',monospace;font-size:0.82rem;color:var(--text-secondary);line-height:1.7;"><span style="color:var(--accent-purple);font-weight:600;">Most Australian organisations are at ML1.</span> The ACSC recommends ML2 as a baseline — and government supply chains are increasingly requiring it. Our free checklist helps you identify exactly where you are and what it takes to move up.</p>
+    </div>
+    <div class="reveal" style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem;align-items:center;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.1em;color:var(--text-muted);text-transform:uppercase;">Where is your organisation?</div>
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+        <span style="font-family:'DM Mono',monospace;font-size:0.7rem;padding:0.3rem 0.8rem;border-radius:4px;background:rgba(107,90,128,0.2);border:1px solid var(--border);color:var(--text-muted);">ML0</span>
+        <span style="font-family:'DM Mono',monospace;font-size:0.7rem;padding:0.3rem 0.8rem;border-radius:4px;background:rgba(168,85,247,0.15);border:1px solid var(--border-bright);color:var(--accent-purple);">ML1 ← most</span>
+        <span style="font-family:'DM Mono',monospace;font-size:0.7rem;padding:0.3rem 0.8rem;border-radius:4px;background:rgba(34,211,238,0.1);border:1px solid rgba(34,211,238,0.3);color:var(--accent-cyan);">ML2 ← target</span>
+        <span style="font-family:'DM Mono',monospace;font-size:0.7rem;padding:0.3rem 0.8rem;border-radius:4px;background:rgba(232,121,249,0.1);border:1px solid rgba(232,121,249,0.25);color:var(--accent-pink);">ML3</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Checklist + Download Form -->
+  <div id="e8-download" style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;" class="e8-download-grid">
+    <!-- What's included -->
+    <div class="reveal">
+      <div class="section-label">Free Download</div>
+      <h3 style="font-family:'Syne',sans-serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:800;margin-bottom:1.25rem;line-height:1.15;">Essential Eight<br>Self-Assessment<br><span style="background:linear-gradient(90deg,var(--accent-purple),var(--accent-cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Checklist</span></h3>
+      <p style="font-size:0.92rem;color:var(--text-secondary);line-height:1.75;margin-bottom:2rem;">A practical, no-fluff checklist covering all eight controls across ML0 to ML3. Built for Australian IT teams and security managers who need a clear picture of their current posture — fast.</p>
+      <div style="display:flex;flex-direction:column;gap:0.75rem;">
+        <div class="value-item"><div class="value-icon">✅</div><div><div class="value-desc">All 8 Essential Eight controls mapped to ML0–ML3 criteria</div></div></div>
+        <div class="value-item"><div class="value-icon">✅</div><div><div class="value-desc">Plain-English questions your team can actually answer</div></div></div>
+        <div class="value-item"><div class="value-icon">✅</div><div><div class="value-desc">Gap identification — see exactly what ML2 requires</div></div></div>
+        <div class="value-item"><div class="value-icon">✅</div><div><div class="value-desc">Evidence checklist for each control</div></div></div>
+        <div class="value-item"><div class="value-icon">✅</div><div><div class="value-desc">Aligned to the ACSC November 2023 Maturity Model</div></div></div>
+        <div class="value-item"><div class="value-icon">✅</div><div><div class="value-desc">Works for Windows, Linux and macOS environments</div></div></div>
+      </div>
+    </div>
+    <!-- Download form -->
+    <div class="reveal">
+      <div class="contact-form">
+        <div style="text-align:center;margin-bottom:1.75rem;">
+          <div style="font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent-cyan);margin-bottom:0.5rem;">Free Self-Assessment</div>
+          <div style="font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--text-primary);">Instant download — no sales call required</div>
+          <div style="display:flex;justify-content:center;gap:1.5rem;margin-top:0.85rem;">
+            <span style="font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--text-muted);">8 Controls</span>
+            <span style="font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--text-muted);">4 ML Levels</span>
+            <span style="font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--text-muted);">Free Always</span>
+          </div>
+        </div>
+        <div id="e8FormInner">
+          <div class="form-group"><label class="form-label" for="e8name">Your Name</label><input class="form-input" type="text" id="e8name" placeholder="Your name" /></div>
+          <div class="form-group"><label class="form-label" for="e8email">Work Email</label><input class="form-input" type="email" id="e8email" placeholder="you@company.com" /></div>
+          <div class="form-group"><label class="form-label" for="e8org">Organisation</label><input class="form-input" type="text" id="e8org" placeholder="Your organisation" /></div>
+          <button class="form-submit" onclick="submitE8Form()">📥 Download Free Checklist</button>
+          <p style="text-align:center;font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--text-muted);margin-top:1rem;">No spam. Unsubscribe anytime. 🇦🇺 Australian owned.</p>
+        </div>
+        <div id="e8FormSuccess" style="display:none;text-align:center;padding:2rem;">
+          <div style="font-size:2rem;margin-bottom:1rem;">✅</div>
+          <div style="font-family:'Syne',sans-serif;font-weight:700;color:#4ade80;margin-bottom:0.5rem;">Your checklist is on its way!</div>
+          <div style="font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--text-secondary);">Check your inbox</div>
+          <div style="margin-top:1.25rem;font-size:0.8rem;color:var(--text-muted);">Questions? <a href="mailto:admin@cyberharmony.au" style="color:var(--accent-cyan);">admin@cyberharmony.au</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  @media(max-width:900px){.e8-download-grid{grid-template-columns:1fr !important;gap:2.5rem !important;}}
+</style>
+
 <!-- RESOURCES -->
 <section id="resources">
   <div class="section-header reveal">
@@ -377,7 +501,7 @@
     <div>
       <div class="footer-nav-title">Navigate</div>
       <ul class="footer-nav-links">
-        <li><a href="#about">About</a></li><li><a href="#services">Services</a></li><li><a href="#projects">Projects</a></li><li><a href="#blog">Blog</a></li><li><a href="#resources">Resources</a></li><li><a href="#contact">Contact</a></li>
+        <li><a href="#about">About</a></li><li><a href="#services">Services</a></li><li><a href="#projects">Projects</a></li><li><a href="#blog">Blog</a></li><li><a href="#essential-eight">Essential Eight</a></li><li><a href="#resources">Resources</a></li><li><a href="#contact">Contact</a></li>
       </ul>
     </div>
     <div>
@@ -422,6 +546,12 @@
     }
     window.addEventListener('resize',resize);init();draw();
   })();
+  function submitE8Form(){
+    const n=document.getElementById('e8name').value.trim(),e=document.getElementById('e8email').value.trim(),o=document.getElementById('e8org').value.trim();
+    if(!n||!e){alert('Please fill in your name and email.');return;}
+    document.getElementById('e8FormInner').style.display='none';
+    document.getElementById('e8FormSuccess').style.display='block';
+  }
   function submitForm(){
     const n=document.getElementById('name').value.trim(),e=document.getElementById('email').value.trim(),m=document.getElementById('message').value.trim();
     if(!n||!e||!m){alert('Please fill in your name, email, and message.');return;}
