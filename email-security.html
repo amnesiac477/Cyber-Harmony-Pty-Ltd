@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Email Security | Cyber Harmony Pty Ltd</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&family=Barlow+Condensed:wght@700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg-deep: #04000a; --bg-mid: #080014; --bg-card: #0e0020;
+      --accent-purple: #a855f7; --accent-violet: #7c3aed;
+      --accent-cyan: #22d3ee; --accent-pink: #e879f9;
+      --text-primary: #f0e8ff; --text-secondary: #b8a8d0; --text-muted: #6b5a80;
+      --border: rgba(168,85,247,0.18); --border-bright: rgba(168,85,247,0.45);
+      --glow-purple: 0 0 40px rgba(168,85,247,0.25);
+      --radius: 12px; --radius-lg: 20px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Instrument Sans', sans-serif; background: var(--bg-deep); color: var(--text-primary); overflow-x: hidden; cursor: none; }
+
+    #cursor-dot { width:8px;height:8px;background:var(--accent-cyan);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);box-shadow:0 0 12px var(--accent-cyan); }
+    #cursor-ring { width:32px;height:32px;border:1.5px solid rgba(168,85,247,0.6);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all 0.15s ease; }
+    ::-webkit-scrollbar{width:4px} ::-webkit-scrollbar-track{background:var(--bg-deep)} ::-webkit-scrollbar-thumb{background:var(--accent-violet);border-radius:2px}
+
+    /* NAV */
+    nav { position:fixed;top:0;left:0;right:0;z-index:1000;padding:0.75rem 4%;display:flex;align-items:center;justify-content:space-between;background:rgba(4,0,10,0.75);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:all 0.3s; }
+    nav.scrolled { background:rgba(4,0,10,0.97);border-bottom-color:var(--border-bright); }
+    .nav-logo { display:flex;align-items:center;gap:0.65rem;text-decoration:none; }
+    .nav-logo img { height:46px;width:46px;object-fit:contain;filter:drop-shadow(0 0 8px rgba(168,85,247,0.5)); }
+    .nav-logo-name { font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;color:var(--text-primary);display:block; }
+    .nav-logo-name span { color:var(--accent-cyan); }
+    .nav-logo-sub { font-family:'DM Mono',monospace;font-size:0.57rem;letter-spacing:0.15em;color:var(--text-muted);text-transform:uppercase;display:block; }
+    .nav-links { display:flex;list-style:none;gap:2.5rem; }
+    .nav-links a { font-family:'DM Mono',monospace;font-size:0.75rem;letter-spacing:0.1em;color:var(--text-secondary);text-decoration:none;text-transform:uppercase;transition:color 0.2s;position:relative; }
+    .nav-links a::after { content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--accent-cyan);transform:scaleX(0);transition:transform 0.25s; }
+    .nav-links a:hover { color:var(--text-primary); }
+    .nav-links a:hover::after { transform:scaleX(1); }
+    .nav-cta { background:linear-gradient(135deg,var(--accent-violet),var(--accent-purple));color:#fff !important;padding:0.5rem 1.25rem;border-radius:6px;box-shadow:0 0 20px rgba(124,58,237,0.4); }
+    .nav-cta::after { display:none !important; }
+
+    /* HERO */
+    .article-hero { padding: 10rem 4% 5rem; position: relative; overflow: hidden; border-bottom: 1px solid var(--border); }
+    .article-hero::before { content:''; position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 0%,rgba(124,58,237,0.18) 0%,transparent 70%);z-index:0; }
+    .article-hero-inner { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; }
+    .back-link { display:inline-flex;align-items:center;gap:0.5rem;font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-cyan);text-decoration:none;margin-bottom:2rem;transition:opacity 0.2s; }
+    .back-link:hover { opacity:0.7; }
+    .article-category { display:inline-flex;align-items:center;gap:0.5rem;background:rgba(168,85,247,0.1);border:1px solid var(--border-bright);border-radius:100px;padding:0.3rem 0.85rem;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.15em;color:var(--accent-purple);text-transform:uppercase;margin-bottom:1.5rem; }
+    .article-title { font-family:'Barlow Condensed',sans-serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:800;line-height:1.05;margin-bottom:1.5rem;letter-spacing:-0.01em; }
+    .article-meta { display:flex;align-items:center;gap:2rem;flex-wrap:wrap;padding-top:1.5rem;border-top:1px solid var(--border); }
+    .meta-author { display:flex;align-items:center;gap:0.75rem; }
+    .meta-avatar { width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--accent-violet),var(--accent-cyan));display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:0.9rem;color:#fff; }
+    .meta-name { font-family:'Syne',sans-serif;font-weight:700;font-size:0.9rem;color:var(--text-primary); }
+    .meta-role { font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;color:var(--text-muted);text-transform:uppercase; }
+    .meta-divider { width:1px;height:32px;background:var(--border); }
+    .meta-info { font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.08em;color:var(--text-muted);text-transform:uppercase; }
+    .meta-linkedin { display:inline-flex;align-items:center;gap:0.4rem;font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.08em;color:var(--accent-cyan);text-decoration:none;border:1px solid rgba(34,211,238,0.25);padding:0.3rem 0.75rem;border-radius:4px;transition:background 0.2s; }
+    .meta-linkedin:hover { background:rgba(34,211,238,0.07); }
+
+    /* ARTICLE BODY */
+    .article-body { max-width: 860px; margin: 0 auto; padding: 4rem 4% 6rem; }
+    .article-intro { font-size:1.15rem;color:var(--text-secondary);line-height:1.8;margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--border); }
+    .article-section { margin-bottom:3rem; }
+    .section-label { font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.25em;color:var(--accent-cyan);text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:0.75rem; }
+    .section-label::before { content:'';display:inline-block;width:28px;height:1px;background:var(--accent-cyan); }
+    .article-h2 { font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:800;color:var(--text-primary);margin-bottom:1.25rem;letter-spacing:-0.01em; }
+    .article-p { font-size:0.97rem;color:var(--text-secondary);line-height:1.85;margin-bottom:1.25rem; }
+    .article-p strong { color:var(--text-primary); }
+
+    /* CONFIG CARDS */
+    .config-grid { display:flex;flex-direction:column;gap:1.25rem;margin:2rem 0; }
+    .config-card { background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem 1.75rem;display:flex;gap:1.25rem;align-items:flex-start;transition:border-color 0.2s; }
+    .config-card:hover { border-color:var(--border-bright); }
+    .config-number { font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.15em;color:var(--accent-purple);background:rgba(168,85,247,0.1);border:1px solid var(--border-bright);border-radius:6px;padding:0.3rem 0.6rem;flex-shrink:0;margin-top:0.1rem; }
+    .config-content {}
+    .config-title { font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:var(--text-primary);margin-bottom:0.4rem; }
+    .config-desc { font-size:0.88rem;color:var(--text-secondary);line-height:1.7; }
+    .config-tip { margin-top:0.6rem;font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--accent-cyan);background:rgba(34,211,238,0.06);border:1px solid rgba(34,211,238,0.15);border-radius:6px;padding:0.4rem 0.75rem; }
+
+    /* CODE BLOCK */
+    .code-block { background:#0a0018;border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;margin:2rem 0;overflow-x:auto; }
+    .code-block-label { font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent-purple);margin-bottom:0.85rem; }
+    .code-block pre { font-family:'DM Mono',monospace;font-size:0.8rem;color:#c4b5fd;line-height:1.75;white-space:pre-wrap;word-break:break-all; }
+    .code-block pre .cmd { color:var(--accent-cyan); }
+    .code-block pre .param { color:#f9a8d4; }
+    .code-block pre .value { color:#86efac; }
+
+    /* CALLOUT */
+    .callout { background:rgba(168,85,247,0.06);border:1px solid var(--border-bright);border-left:3px solid var(--accent-purple);border-radius:var(--radius);padding:1.25rem 1.5rem;margin:2rem 0; }
+    .callout-title { font-family:'Syne',sans-serif;font-weight:700;font-size:0.9rem;color:var(--accent-purple);margin-bottom:0.5rem; }
+    .callout p { font-size:0.88rem;color:var(--text-secondary);line-height:1.7; }
+    .callout.cyan { border-color:rgba(34,211,238,0.4);border-left-color:var(--accent-cyan);background:rgba(34,211,238,0.05); }
+    .callout.cyan .callout-title { color:var(--accent-cyan); }
+
+    /* TAGS */
+    .article-tags { display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border); }
+    .article-tag { font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-purple);background:rgba(168,85,247,0.08);border:1px solid rgba(168,85,247,0.2);padding:0.3rem 0.75rem;border-radius:4px; }
+
+    /* CTA */
+    .article-cta { background:var(--bg-mid);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2.5rem;margin-top:3rem;text-align:center; }
+    .article-cta h3 { font-family:'Barlow Condensed',sans-serif;font-size:1.8rem;font-weight:800;margin-bottom:0.75rem; }
+    .article-cta p { font-size:0.92rem;color:var(--text-secondary);margin-bottom:1.5rem;line-height:1.7; }
+    .btn-primary { display:inline-flex;align-items:center;gap:0.5rem;background:linear-gradient(135deg,var(--accent-violet),var(--accent-purple));color:#fff;padding:0.85rem 2rem;border-radius:8px;font-family:'Syne',sans-serif;font-weight:700;font-size:0.9rem;text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;box-shadow:0 0 30px rgba(124,58,237,0.45); }
+    .btn-primary:hover { transform:translateY(-2px);box-shadow:0 0 45px rgba(124,58,237,0.65); }
+
+    /* FOOTER */
+    footer { padding:2rem 4%;border-top:1px solid var(--border);text-align:center;font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--text-muted);letter-spacing:0.08em; }
+
+    @media(max-width:768px){
+      .nav-links{display:none}
+      .article-meta{gap:1rem}
+      .meta-divider{display:none}
+    }
+  </style>
+</head>
+<body>
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+
+  <nav id="navbar">
+    <a href="/" class="nav-logo">
+      <img src="/logo.png" alt="Cyber Harmony" />
+      <div>
+        <span class="nav-logo-name">Cyber <span>Harmony</span></span>
+        <span class="nav-logo-sub">Pty Ltd</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/#about">About</a></li>
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/#projects">Projects</a></li>
+      <li><a href="/#blog">Blog</a></li>
+      <li><a href="/#essential-eight">Essential Eight</a></li>
+      <li><a href="/#resources">Resources</a></li>
+      <li><a href="/#contact" class="nav-cta">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="article-hero">
+    <div class="article-hero-inner">
+      <a href="/#blog" class="back-link">← Back to Insights</a>
+      <div class="article-category">📧 Email Security</div>
+      <h1 class="article-title">Microsoft 365 Anti-Malware:<br>What Most Tenants Get Wrong</h1>
+      <div class="article-meta">
+        <div class="meta-author">
+          <div class="meta-avatar">HS</div>
+          <div>
+            <div class="meta-name">Hossein Sadeghi</div>
+            <div class="meta-role">Founder · Cyber Harmony Pty Ltd</div>
+          </div>
+        </div>
+        <div class="meta-divider"></div>
+        <div class="meta-info">Microsoft 365 · Defender for Office 365</div>
+        <div class="meta-divider"></div>
+        <a href="https://www.linkedin.com/company/cyber-harmony-pty-ltd" target="_blank" class="meta-linkedin">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          Originally on LinkedIn
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="article-body">
+
+    <p class="article-intro">Most Microsoft 365 tenants I audit have anti-malware enabled. Almost none of them have it configured properly. Here's what you're missing — and why it matters.</p>
+
+    <!-- SECTION 1 -->
+    <div class="article-section">
+      <div class="section-label">Out of the Box</div>
+      <h2 class="article-h2">First, understand what you actually have</h2>
+      <p class="article-p">Every Microsoft 365 tenant with cloud mailboxes gets a <strong>default anti-malware policy</strong>. It applies to everyone, it's always on, and you can't delete it. That's the good news.</p>
+      <p class="article-p">The bad news? The defaults are a starting point — not a finish line.</p>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="article-section">
+      <div class="section-label">Configuration</div>
+      <h2 class="article-h2">What you should actually be configuring</h2>
+      <div class="config-grid">
+
+        <div class="config-card">
+          <div class="config-number">01</div>
+          <div class="config-content">
+            <div class="config-title">Common Attachments Filter</div>
+            <div class="config-desc">Enable it. Microsoft maintains a list of file types that are almost never legitimate in email — .ace, .apk, .iso, .vhd, and many more. When detected, you have two options: reject with an NDR or quarantine.</div>
+            <div class="config-tip">💡 Recommend quarantine — it preserves the message for investigation without delivering it.</div>
+          </div>
+        </div>
+
+        <div class="config-card">
+          <div class="config-number">02</div>
+          <div class="config-content">
+            <div class="config-title">Zero-Hour Auto Purge (ZAP) for Malware</div>
+            <div class="config-desc">One of the most underrated protections in the stack. ZAP retroactively pulls back emails that were delivered before malware signatures were available — then quarantines them.</div>
+            <div class="config-tip">💡 Enable it. Full stop.</div>
+          </div>
+        </div>
+
+        <div class="config-card">
+          <div class="config-number">03</div>
+          <div class="config-content">
+            <div class="config-title">Quarantine Policy</div>
+            <div class="config-desc">By default, malware detections use AdminOnlyAccessPolicy — meaning recipients get no notification that a message was quarantined. That's actually correct for malware (you don't want end users releasing malware from quarantine).</div>
+            <div class="config-tip">💡 Make sure your admins are aware of the queue and reviewing it regularly.</div>
+          </div>
+        </div>
+
+        <div class="config-card">
+          <div class="config-number">04</div>
+          <div class="config-content">
+            <div class="config-title">Admin Notifications</div>
+            <div class="config-desc">Configure alerts for malware detected from both internal and external senders separately. An internal sender triggering a malware alert is a red flag — it means a device or account may already be compromised.</div>
+          </div>
+        </div>
+
+        <div class="config-card">
+          <div class="config-number">05</div>
+          <div class="config-content">
+            <div class="config-title">Custom Policies by User Group</div>
+            <div class="config-desc">The default policy covers everyone, but it's blunt. Build targeted policies for high-risk groups — executives, finance, IT — with stricter settings.</div>
+            <div class="config-tip">💡 Custom policies apply to inbound email only. Don't forget your default policy covers outbound.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SECTION 3 - POWERSHELL -->
+    <div class="article-section">
+      <div class="section-label">PowerShell</div>
+      <h2 class="article-h2">The PowerShell angle</h2>
+      <p class="article-p">What the portal hides is that every anti-malware policy is actually <strong>two objects</strong> under the hood — a <strong>MalwareFilterPolicy</strong> (the settings) and a <strong>MalwareFilterRule</strong> (who it applies to). When you build these via PowerShell, you manage them separately. This matters if you're deploying at scale or via IaC pipelines.</p>
+
+      <div class="code-block">
+        <div class="code-block-label">PowerShell — Stand up a policy with attachments filter + admin notifications</div>
+        <pre><span class="cmd">New-MalwareFilterPolicy</span> <span class="param">-Name</span> <span class="value">"Finance Team Policy"</span> \
+  <span class="param">-EnableFileFilter</span> <span class="value">$true</span> \
+  <span class="param">-EnableInternalSenderAdminNotifications</span> <span class="value">$true</span> \
+  <span class="param">-InternalSenderAdminAddress</span> <span class="value">security@yourcompany.com</span>
+
+<span class="cmd">New-MalwareFilterRule</span> <span class="param">-Name</span> <span class="value">"Finance Team Rule"</span> \
+  <span class="param">-MalwareFilterPolicy</span> <span class="value">"Finance Team Policy"</span> \
+  <span class="param">-SentToMemberOf</span> <span class="value">"Finance-DL@yourcompany.com"</span></pre>
+      </div>
+    </div>
+
+    <!-- SECTION 4 - TESTING -->
+    <div class="article-section">
+      <div class="section-label">Testing</div>
+      <h2 class="article-h2">Always test your configuration</h2>
+      <p class="article-p">Microsoft supports the <strong>EICAR test file</strong> — a harmless 68-byte string that every anti-malware engine treats as malware. Send it as an attachment to a test mailbox and verify it's quarantined, not delivered.</p>
+
+      <div class="callout cyan">
+        <div class="callout-title">🧪 Test Verification</div>
+        <p>If the EICAR file arrives in the inbox, your policy isn't working. This test should be part of every new tenant onboarding and policy change validation.</p>
+      </div>
+    </div>
+
+    <!-- BOTTOM LINE -->
+    <div class="callout">
+      <div class="callout-title">Bottom Line</div>
+      <p>Anti-malware policies in Defender for Office 365 are not set-and-forget. They require deliberate configuration, regular review, and testing. If you haven't audited yours recently — now is a good time.</p>
+    </div>
+
+    <!-- TAGS -->
+    <div class="article-tags">
+      <span class="article-tag">Microsoft Defender</span>
+      <span class="article-tag">Defender for Office 365</span>
+      <span class="article-tag">Microsoft 365 Security</span>
+      <span class="article-tag">Email Security</span>
+      <span class="article-tag">Anti-Malware</span>
+      <span class="article-tag">Zero-Hour Auto Purge</span>
+      <span class="article-tag">Cyber Security</span>
+      <span class="article-tag">Australian Cybersecurity</span>
+      <span class="article-tag">Cloud Security</span>
+      <span class="article-tag">M365</span>
+    </div>
+
+    <!-- CTA -->
+    <div class="article-cta">
+      <h3>Want a second opinion on your M365 setup?</h3>
+      <p>Happy to walk through your current anti-malware configuration. Drop us a message and we'll take a look.</p>
+      <a href="/#contact" class="btn-primary">Get in Touch →</a>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>© 2025 Cyber Harmony Pty Ltd · ABN · <a href="/" style="color:var(--accent-cyan);text-decoration:none;">cyberharmony.au</a></p>
+  </footer>
+
+  <script>
+    // Cursor
+    const dot = document.getElementById('cursor-dot');
+    const ring = document.getElementById('cursor-ring');
+    document.addEventListener('mousemove', e => {
+      dot.style.left = e.clientX + 'px'; dot.style.top = e.clientY + 'px';
+      ring.style.left = e.clientX + 'px'; ring.style.top = e.clientY + 'px';
+    });
+    // Nav scroll
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+    });
+  </script>
+</body>
+</html>
