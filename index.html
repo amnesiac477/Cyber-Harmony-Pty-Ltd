@@ -217,6 +217,7 @@
     <li><a href="#projects">Projects</a></li>
     <li><a href="#blog">Blog</a></li>
     <li><a href="#essential-eight">Essential Eight</a></li>
+    <li><a href="#email-security">Email Security</a></li>
     <li><a href="#resources">Resources</a></li>
     <li><a href="#contact" class="nav-cta">Contact Us</a></li>
   </ul>
@@ -445,6 +446,137 @@
   @media(max-width:900px){.e8-download-grid{grid-template-columns:1fr !important;gap:2.5rem !important;}}
 </style>
 
+<!-- EMAIL SECURITY -->
+<section id="email-security" style="background:var(--bg-deep);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="section-header reveal">
+    <div class="section-label">Microsoft 365 · Defender for Office 365</div>
+    <h2 class="section-title">Email Security</h2>
+    <p class="section-subtitle">Enterprise email is the single largest attack surface in most organisations. We design, configure, and validate layered defences across Microsoft 365 and Defender for Office 365 — so your inbox doesn't become an entry point.</p>
+  </div>
+
+  <!-- OUR SERVICES SUBSECTION -->
+  <div style="margin-bottom:5rem;">
+    <div class="section-label reveal">What We Do</div>
+    <h3 class="reveal" style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(2.2rem,3.5vw,3.2rem);font-weight:800;margin-bottom:0.75rem;letter-spacing:-0.01em;">Our Services</h3>
+    <p class="reveal" style="font-size:0.95rem;color:var(--text-secondary);line-height:1.75;max-width:640px;margin-bottom:3rem;">We go beyond enabling the defaults. Every engagement includes a full audit of your existing posture, followed by deliberate configuration, testing, and documentation — tailored to your organisation's risk profile.</p>
+
+    <div class="services-grid">
+
+      <div class="service-card reveal">
+        <div class="service-icon">🔍</div>
+        <div class="service-title">Anti-Malware Policy Audit & Configuration</div>
+        <div class="service-desc">We review your existing M365 anti-malware policies against current ACSC and Microsoft best practice. We enable and tune the Common Attachments Filter, configure quarantine actions, and build custom policies for high-risk user groups including executives, finance, and IT — applying stricter controls where standard defaults aren't enough.</div>
+        <span class="service-tag">MalwareFilterPolicy · PowerShell · IaC</span>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">⚡</div>
+        <div class="service-title">Zero-Hour Auto Purge (ZAP) Enablement</div>
+        <div class="service-desc">ZAP retroactively quarantines emails that were delivered before malware or phishing signatures were available. We enable and validate ZAP across your tenant for both malware and phishing detections — one of the most underutilised protections in the M365 stack, and one of the most effective.</div>
+        <span class="service-tag">ZAP · Defender for Office 365 · Threat Protection</span>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">🏛️</div>
+        <div class="service-title">Quarantine Policy Design & Admin Workflow</div>
+        <div class="service-desc">We design quarantine policies appropriate to each detection type. Malware detections are locked to AdminOnlyAccessPolicy — end users should never be able to release malware. We establish admin review workflows, configure notification cadences, and ensure your team has visibility over the quarantine queue without creating risk.</div>
+        <span class="service-tag">Quarantine Management · AdminOnlyAccessPolicy</span>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">🚨</div>
+        <div class="service-title">Internal Sender Alerting & Compromise Detection</div>
+        <div class="service-desc">An internal sender triggering a malware alert is a critical red flag — it signals a compromised device or account. We configure separate admin notification policies for internal and external senders, and integrate these alerts into your broader incident response workflow so threats don't go undetected.</div>
+        <span class="service-tag">Alert Policies · Incident Response · M365 Defender</span>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">🧪</div>
+        <div class="service-title">Configuration Testing & EICAR Validation</div>
+        <div class="service-desc">Every configuration we deploy is tested before we hand it over. We use the EICAR test file — a harmless 68-byte string recognised by every anti-malware engine as malware — to verify that quarantine is working correctly. If it reaches the inbox, the policy isn't working. We don't leave until it doesn't.</div>
+        <span class="service-tag">EICAR · Policy Validation · Security Testing</span>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">⚙️</div>
+        <div class="service-title">PowerShell & IaC Deployment at Scale</div>
+        <div class="service-desc">For organisations deploying at scale or through infrastructure-as-code pipelines, we build and document PowerShell-based policy deployment covering both MalwareFilterPolicy and MalwareFilterRule objects. This ensures consistent, repeatable configuration across tenants and reduces reliance on manual portal configuration.</div>
+        <span class="service-tag">PowerShell · Automation · Enterprise Deployment</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ARTICLE REFERENCE SUBSECTION -->
+  <div style="background:var(--bg-mid);border:1px solid var(--border);border-radius:var(--radius-lg);padding:3rem 3.5rem;">
+    <div class="section-label reveal">Technical Reference</div>
+    <h3 class="reveal" style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(2rem,3vw,2.8rem);font-weight:800;margin-bottom:0.5rem;letter-spacing:-0.01em;">Microsoft 365 Anti-Malware: What Most Tenants Get Wrong</h3>
+    <p class="reveal" style="font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--text-muted);letter-spacing:0.08em;margin-bottom:2.5rem;">By Hossein Sadeghi · Cyber Harmony Pty Ltd</p>
+
+    <p class="reveal" style="font-size:0.97rem;color:var(--text-secondary);line-height:1.85;margin-bottom:2rem;">Most Microsoft 365 tenants I audit have anti-malware enabled. Almost none of them have it configured properly. Here's what you're missing — and why it matters.</p>
+
+    <p class="reveal" style="font-size:0.97rem;color:var(--text-secondary);line-height:1.85;margin-bottom:2rem;">Every Microsoft 365 tenant with cloud mailboxes gets a <strong style="color:var(--text-primary);">default anti-malware policy</strong>. It applies to everyone, it's always on, and you can't delete it. That's the good news. The bad news? The defaults are a starting point — not a finish line.</p>
+
+    <!-- Config points -->
+    <div style="display:flex;flex-direction:column;gap:1.25rem;margin:2rem 0;">
+
+      <div class="reveal" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:1.4rem 1.75rem;display:flex;gap:1.25rem;align-items:flex-start;">
+        <span style="font-family:'DM Mono',monospace;font-size:0.68rem;color:var(--accent-purple);background:rgba(168,85,247,0.1);border:1px solid var(--border-bright);border-radius:6px;padding:0.3rem 0.6rem;flex-shrink:0;">01</span>
+        <div><div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.97rem;color:var(--text-primary);margin-bottom:0.4rem;">Common Attachments Filter</div><div style="font-size:0.87rem;color:var(--text-secondary);line-height:1.7;">Enable it. Microsoft maintains a list of file types that are almost never legitimate in email — .ace, .apk, .iso, .vhd, and many more. When detected, quarantine is recommended over NDR — it preserves the message for investigation without delivering it.</div></div>
+      </div>
+
+      <div class="reveal" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:1.4rem 1.75rem;display:flex;gap:1.25rem;align-items:flex-start;">
+        <span style="font-family:'DM Mono',monospace;font-size:0.68rem;color:var(--accent-purple);background:rgba(168,85,247,0.1);border:1px solid var(--border-bright);border-radius:6px;padding:0.3rem 0.6rem;flex-shrink:0;">02</span>
+        <div><div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.97rem;color:var(--text-primary);margin-bottom:0.4rem;">Zero-Hour Auto Purge (ZAP) for Malware</div><div style="font-size:0.87rem;color:var(--text-secondary);line-height:1.7;">One of the most underrated protections in the stack. ZAP retroactively pulls back emails that were delivered before malware signatures were available — then quarantines them. Enable it. Full stop.</div></div>
+      </div>
+
+      <div class="reveal" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:1.4rem 1.75rem;display:flex;gap:1.25rem;align-items:flex-start;">
+        <span style="font-family:'DM Mono',monospace;font-size:0.68rem;color:var(--accent-purple);background:rgba(168,85,247,0.1);border:1px solid var(--border-bright);border-radius:6px;padding:0.3rem 0.6rem;flex-shrink:0;">03</span>
+        <div><div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.97rem;color:var(--text-primary);margin-bottom:0.4rem;">Quarantine Policy</div><div style="font-size:0.87rem;color:var(--text-secondary);line-height:1.7;">By default, malware detections use AdminOnlyAccessPolicy — meaning recipients get no notification that a message was quarantined. That's correct for malware. But ensure your admins are aware of the queue and reviewing it regularly.</div></div>
+      </div>
+
+      <div class="reveal" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:1.4rem 1.75rem;display:flex;gap:1.25rem;align-items:flex-start;">
+        <span style="font-family:'DM Mono',monospace;font-size:0.68rem;color:var(--accent-purple);background:rgba(168,85,247,0.1);border:1px solid var(--border-bright);border-radius:6px;padding:0.3rem 0.6rem;flex-shrink:0;">04</span>
+        <div><div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.97rem;color:var(--text-primary);margin-bottom:0.4rem;">Admin Notifications</div><div style="font-size:0.87rem;color:var(--text-secondary);line-height:1.7;">Configure alerts for malware detected from both internal and external senders separately. An internal sender triggering a malware alert is a red flag — it means a device or account may already be compromised.</div></div>
+      </div>
+
+      <div class="reveal" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:1.4rem 1.75rem;display:flex;gap:1.25rem;align-items:flex-start;">
+        <span style="font-family:'DM Mono',monospace;font-size:0.68rem;color:var(--accent-purple);background:rgba(168,85,247,0.1);border:1px solid var(--border-bright);border-radius:6px;padding:0.3rem 0.6rem;flex-shrink:0;">05</span>
+        <div><div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.97rem;color:var(--text-primary);margin-bottom:0.4rem;">Custom Policies by User Group</div><div style="font-size:0.87rem;color:var(--text-secondary);line-height:1.7;">The default policy covers everyone, but it's blunt. Build targeted policies for high-risk groups — executives, finance, IT — with stricter settings. Custom policies apply to inbound email only, so don't forget your default policy covers outbound.</div></div>
+      </div>
+
+    </div>
+
+    <!-- PowerShell -->
+    <div class="reveal" style="margin:2rem 0;">
+      <div style="font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent-cyan);margin-bottom:1rem;">PowerShell — Deploy a policy with attachments filter + admin notifications</div>
+      <div style="background:#04000a;border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;overflow-x:auto;">
+        <pre style="font-family:'DM Mono',monospace;font-size:0.8rem;color:#c4b5fd;line-height:1.75;white-space:pre-wrap;word-break:break-all;"><span style="color:var(--accent-cyan);">New-MalwareFilterPolicy</span> <span style="color:#f9a8d4;">-Name</span> <span style="color:#86efac;">"Finance Team Policy"</span> <span style="color:#f9a8d4;">-EnableFileFilter</span> <span style="color:#86efac;">$true</span> <span style="color:#f9a8d4;">-EnableInternalSenderAdminNotifications</span> <span style="color:#86efac;">$true</span> <span style="color:#f9a8d4;">-InternalSenderAdminAddress</span> <span style="color:#86efac;">security@yourcompany.com</span>
+
+<span style="color:var(--accent-cyan);">New-MalwareFilterRule</span> <span style="color:#f9a8d4;">-Name</span> <span style="color:#86efac;">"Finance Team Rule"</span> <span style="color:#f9a8d4;">-MalwareFilterPolicy</span> <span style="color:#86efac;">"Finance Team Policy"</span> <span style="color:#f9a8d4;">-SentToMemberOf</span> <span style="color:#86efac;">"Finance-DL@yourcompany.com"</span></pre>
+      </div>
+    </div>
+
+    <!-- Bottom line callout -->
+    <div class="reveal" style="background:rgba(168,85,247,0.06);border:1px solid var(--border-bright);border-left:3px solid var(--accent-purple);border-radius:var(--radius);padding:1.25rem 1.5rem;margin-top:2rem;">
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.9rem;color:var(--accent-purple);margin-bottom:0.5rem;">Bottom Line</div>
+      <p style="font-size:0.88rem;color:var(--text-secondary);line-height:1.7;">Anti-malware policies in Defender for Office 365 are not set-and-forget. They require deliberate configuration, regular review, and testing. If you haven't audited yours recently — now is a good time. Happy to walk through your current setup. Drop a message or contact us directly.</p>
+    </div>
+
+    <!-- Tags -->
+    <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border);">
+      <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-purple);background:rgba(168,85,247,0.08);border:1px solid rgba(168,85,247,0.2);padding:0.3rem 0.75rem;border-radius:4px;">Microsoft Defender</span>
+      <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-purple);background:rgba(168,85,247,0.08);border:1px solid rgba(168,85,247,0.2);padding:0.3rem 0.75rem;border-radius:4px;">Defender for Office 365</span>
+      <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-purple);background:rgba(168,85,247,0.08);border:1px solid rgba(168,85,247,0.2);padding:0.3rem 0.75rem;border-radius:4px;">Email Security</span>
+      <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-purple);background:rgba(168,85,247,0.08);border:1px solid rgba(168,85,247,0.2);padding:0.3rem 0.75rem;border-radius:4px;">Anti-Malware</span>
+      <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-purple);background:rgba(168,85,247,0.08);border:1px solid rgba(168,85,247,0.2);padding:0.3rem 0.75rem;border-radius:4px;">Zero-Hour Auto Purge</span>
+      <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-purple);background:rgba(168,85,247,0.08);border:1px solid rgba(168,85,247,0.2);padding:0.3rem 0.75rem;border-radius:4px;">Australian Cybersecurity</span>
+      <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-purple);background:rgba(168,85,247,0.08);border:1px solid rgba(168,85,247,0.2);padding:0.3rem 0.75rem;border-radius:4px;">M365</span>
+    </div>
+  </div>
+
+</section>
+
 <!-- RESOURCES -->
 <section id="resources">
   <div class="section-header reveal">
@@ -502,7 +634,7 @@
     <div>
       <div class="footer-nav-title">Navigate</div>
       <ul class="footer-nav-links">
-        <li><a href="#about">About</a></li><li><a href="#services">Services</a></li><li><a href="#projects">Projects</a></li><li><a href="#blog">Blog</a></li><li><a href="#essential-eight">Essential Eight</a></li><li><a href="#resources">Resources</a></li><li><a href="#contact">Contact</a></li>
+        <li><a href="#about">About</a></li><li><a href="#services">Services</a></li><li><a href="#projects">Projects</a></li><li><a href="#blog">Blog</a></li><li><a href="#essential-eight">Essential Eight</a></li><li><a href="#email-security">Email Security</a></li><li><a href="#resources">Resources</a></li><li><a href="#contact">Contact</a></li>
       </ul>
     </div>
     <div>
